@@ -4,11 +4,11 @@ import csv
 import time
 
 def read_url(page):
-		'''Opens and read the url to get the html structure of the page.'''
+	'''Opens and read the url to get the html structure of the page.'''
 
-		url = f"https://www.bookdepository.com/wishlists/WCR55G?page={page}"
-		read_page = urlopen(url)
-		return(read_page)
+	url = f"https://www.bookdepository.com/wishlists/WCR55G?page={page}"
+	read_page = urlopen(url)
+	return(read_page)
 
 def get_html(read_page):
 	'''Reads the page to get its HTML structure'''
@@ -49,3 +49,17 @@ for page in range(1, 88):
 	info = extract_book_info(soup)
 	save_book_info(info)
 	time.sleep(10)
+	
+
+""" The codes below are equivalent
+new_list = []
+for title in [authors_strings, book_strings]:
+    new_list.append(title)
+author_with_titles = [title for title in [book_strings, authors_strings]] """
+
+
+""" book_titles = soup.find_all("meta", attrs={"itemprop": "name"})
+	book_authors = soup.find_all("meta", attrs={"itemprop": "contributor"})
+	book_strings = [titles['content'] for titles in book_titles]
+	authors_strings = [author['content'] for author in book_authors]
+	convert_to_zip = zip(book_strings, authors_strings) """
