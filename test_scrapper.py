@@ -25,7 +25,7 @@ def convert_to_soup(html):
 def extract_book_info(soup):
 	'''Extract the title and author of the books within the soup object and convert it to a string.'''
 
-	book_details= soup.find_all("div", class_="book-item")
+	book_details = soup.find_all("div", class_="book-item")
 	book_info = []
 	for item in book_details:
 		book_info.append(" By ".join([
