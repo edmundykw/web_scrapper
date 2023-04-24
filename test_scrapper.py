@@ -30,17 +30,16 @@ def extract_book_info(soup):
 	for item in book_details:
 		book_info.append(" By ".join([
 			item.find(attrs={"itemprop": "name"})['content'],
-			item.find(attrs={"itemprop": "contributor"})['content']
-		]))
+			item.find(attrs={"itemprop": "contributor"})['content']]))
 	return(book_info)
 
 def save_book_info(info):
 	'''Saving the book info into a CSV by rows.'''
 
-	file = open('booklist.csv', 'a')
-	file =  csv.writer(file)
-	for book in info:
-		file.writerow([book])
+	with open('list.csv', 'a') as f:
+		writer =  csv.writer(f)
+		for book in info:
+			writer.writerow([book])
 
 for page in range(1, 88):
 	read_page = read_url(page)
