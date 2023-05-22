@@ -13,7 +13,7 @@ def read_url(page):
 def get_html(read_page):
 	'''Reads the page to get its HTML structure'''
 
-	html = read_page.read().decode("utf-8") #decode turns the bytes obtain from .read() to a string type.
+	html = read_page.read().decode("utf-8") #decode turns the bytes obtained from .read() to a string type.
 	return(html)
 
 def convert_to_soup(html):
